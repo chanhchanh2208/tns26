@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Vượt chướng ngại vật</title>
+<!DOCTYPE html><html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Vượt chướng ngại vật · v5</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@600;700;800;900&display=swap" rel="stylesheet">
 <style>
 :root{--g:#2fa83a;--p:#a55be0;--k:#ff4f9a;--o:#ff8a1f;--b:#2f6fe8;--y:#ffc928;--ink:#1c3a9e}
@@ -82,7 +82,7 @@ button{font:inherit;cursor:pointer;border:0;color:#fff}
 @keyframes zz{from{transform:translateY(40px) scale(.62)}}
 .zi img{width:100%;height:100%;object-fit:cover;display:block}
 .zt{position:absolute;left:6%;top:24%;display:flex;flex-direction:column;gap:14px;align-items:flex-start}
-.zp{background:rgba(255,255,255,.93);border:6px solid var(--g);border-radius:44px;padding:8px 36px;font-size:48px;font-weight:900;color:var(--ink);box-shadow:0 8px 0 rgba(0,0,0,.15);opacity:0;animation:zp .7s forwards cubic-bezier(.2,1.4,.4,1)}
+.zp{background:rgba(255,255,255,.93);border:6px solid var(--g);border-radius:44px;padding:8px 36px;font-size:48px;font-weight:900;color:var(--ink);text-align:center;box-shadow:0 8px 0 rgba(0,0,0,.15);opacity:0;animation:zp .7s forwards cubic-bezier(.2,1.4,.4,1)}
 @keyframes zp{from{opacity:0;transform:translateY(24px) scale(.8)}to{opacity:1;transform:none}}
 .zb{position:absolute;left:0;top:962px;width:100%;display:flex;gap:24px;justify-content:center}.zb .bt{height:84px;padding:0 44px;font-size:32px}
 #wn.on{display:flex;inset:0;z-index:50;background:rgba(255,248,214,.96);flex-direction:column;align-items:center;padding-top:34px}
@@ -128,7 +128,6 @@ button{font:inherit;cursor:pointer;border:0;color:#fff}
 <div id="wo" onclick="wclose()"><div id="wbox"><i id="ptr"></i><canvas id="wc" width="800" height="800"></canvas><i id="hub"></i></div><div id="wres"></div><img id="wm1" alt=""><img id="wm2" alt=""><img id="wm3" alt=""><img id="wm4" alt=""></div>
 <div id="zm"></div><div id="wn"></div><div id="toast"></div><div id="set"></div><div id="ask"></div>
 <div id="start"><img id="sb1" style="left:calc(560px + var(--dx,0px));top:60px;width:800px" alt=""><div style="left:0;top:560px;width:100%;text-align:center;font-size:96px;font-weight:900;-webkit-text-stroke:16px #fff;paint-order:stroke fill;line-height:1">VƯỢT CHƯỚNG NGẠI VẬT</div>
-<div style="left:0;top:690px;width:100%;text-align:center;font-size:30px;font-weight:800;color:#4a5fb8">Bấm bắt đầu để kích hoạt âm thanh</div>
 <button id="sb" class="bt or" onclick="go()">BẮT ĐẦU TRÒ CHƠI</button>
 <img class="m" id="m1" style="left:40px;top:80px" alt=""><img class="m" id="m2" style="right:40px;top:90px;animation-delay:.6s" alt=""><img class="m" id="m3" style="left:90px;top:700px;animation-delay:1.2s" alt=""><img class="m" id="m4" style="right:90px;top:700px;animation-delay:1.8s" alt=""></div>
 <canvas id="cf" width="1920" height="1080"></canvas></div>
@@ -137,13 +136,13 @@ const IM={bg:"data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAY
 const $=i=>document.getElementById(i),rf=()=>crypto.getRandomValues(new Uint32Array(1))[0]/4294967296,ri=n=>Math.floor(rf()*n);
 const esc=s=>String(s).replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;');
 const COL=['#2fa83a','#a55be0','#ff4f9a','#ff8a1f','#2f6fe8','#e6a800','#14a89a','#f2586b'];
-const DQ=[["Khi deadline dí tới cửa, thành viên SeSC nên làm gì?", ["Never Back Down", "Never Open Facebook", "Never Do Task", "Never Sleep Again"], 0], ["Đặc sản nào có khả năng xuất hiện ở một buổi họp CLB?", ["Những ý tưởng đột phá", "Những chiếc bụng đói", "Những câu nói \"đi bonding đi\"", "Tất cả những điều trên"], 3], ["CLB được chia theo mô hình bao nhiêu ban (Trừ Ban Chủ nhiệm)?", ["3", "4", "5", "6"], 2], ["Tài sản nào quý nhất của thành viên SeSC vào mùa Tuyển nhân sự?", ["Kiến thức", "Kỹ năng", "Tinh thần đồng đội", "Giấc ngủ"], 2], ["SeSC là viết tắt của câu lạc bộ nào?", ["CLB Tài chính – Chứng khoán", "CLB Đầu tư quốc tế", "CLB Tài chính - Đầu tư", "CLB Ngân hàng"], 0], ["SeSC được thành lập vào ngày nào?", ["1/4/2010", "1/4/2012", "1/4/2011", "1/4/2013"], 0], ["FSC là tên viết tắt của cuộc thi nào?", ["Financial Student Contest", "Finance Stock Competition", "Future Securities Contest", "Financial Skills Challenge"], 0], ["Linh vật của CLB là gì?", ["Bò tót", "Bò sữa", "Bò biết bay", "Bò Wagyu"], 1]];
-const fresh=o=>({teams:[...Array(8)].map((_,i)=>({n:o?o.teams[i].n:'Đội '+(i+1),s:0})),qs:o?o.qs:DQ.map(x=>({q:x[0],o:x[1],c:x[2]})),kw:o?o.kw:'TEAMBUILDING',tA:o?o.tA:10,tB:o?o.tB:10,pR:o?o.pR:20,pK:o?o.pK:80,lock:o?o.lock:false,ev1:o&&o.ev1||'Thời gian: 7h30 - 11h (01/11/2026)',ev2:o&&o.ev2||'Địa điểm: Công viên Gia Định',vol:o?o.vol:.8,mv:o?o.mv:.5,muted:false,op:Array(8).fill(false),hint:[],turn:null,cur:null,st:null,ex:[],kl:[],bag:[],ph:'idle',log:[],over:false,win:null,kt:null,kp:null,to:false});
-let S;try{S=JSON.parse(localStorage.getItem('vcnv3'))}catch(e){}
+const DQ=[["Khi deadline dí tới cửa, thành viên SeSC nên làm gì?", "Never Back Down", ["Never Back Down", "Never Open Facebook", "Never Do Task", "Never Sleep Again"], 0], ["Đặc sản nào có khả năng xuất hiện ở một buổi họp CLB?", "Tất cả những điều trên", ["Những ý tưởng đột phá", "Những chiếc bụng đói", "Những câu nói \"đi bonding đi\"", "Tất cả những điều trên"], 3], ["CLB được chia theo mô hình bao nhiêu ban (Trừ Ban Chủ nhiệm)?", "5"], ["Tài sản nào quý nhất của thành viên SeSC vào mùa Tuyển nhân sự?", "Tinh thần đồng đội", ["Kiến thức", "Kỹ năng", "Tinh thần đồng đội", "Giấc ngủ"], 2], ["SeSC là viết tắt của câu lạc bộ nào?", "CLB Tài chính Chứng khoán"], ["SeSC được thành lập vào ngày nào?", "1/4/2010"], ["FSC là tên viết tắt của cuộc thi nào?", "Financial Student Contest"], ["Linh vật của CLB là gì?", "Bò sữa", ["Bò tót", "Bò sữa", "Bò biết bay", "Bò Wagyu"], 1]];
+const fresh=o=>({teams:[...Array(8)].map((_,i)=>({n:o?o.teams[i].n:'Đội '+(i+1),s:0})),qs:o?o.qs:DQ.map(x=>x[2]?{q:x[0],a:x[1],o:x[2].slice(),c:x[3]}:{q:x[0],a:x[1]}),kw:o?o.kw:'TEAMBUILDING',tA:o?o.tA:15,tB:o?o.tB:10,pR:o?o.pR:20,pK:o?o.pK:60,lock:o?o.lock:false,ev1:o&&o.ev1||'Thời gian: 7h30 - 11h (01/11/2026)',ev2:o&&o.ev2||'Địa điểm: Công viên Gia Định',vol:o?o.vol:.8,mv:o?o.mv:.5,muted:false,op:Array(8).fill(false),hint:[],turn:null,cur:null,st:null,ex:[],kl:[],bag:[],ph:'idle',log:[],over:false,win:null,kt:null,kp:null,to:false});
+let S;try{S=JSON.parse(localStorage.getItem('vcnv6'))}catch(e){}
 if(!S||!S.teams)S=fresh();
 S.ev1=S.ev1||'Thời gian: 7h30 - 11h (01/11/2026)';S.ev2=S.ev2||'Địa điểm: Công viên Gia Định';
 const norm=()=>{S.ph=S.over?'over':S.turn!=null?'pick':'idle';S.cur=S.st=S.kt=null;S.ex=[];S.to=false};norm();
-const save=()=>{try{localStorage.setItem('vcnv3',JSON.stringify(S))}catch(e){}};
+const save=()=>{try{localStorage.setItem('vcnv6',JSON.stringify(S))}catch(e){}};
 const nm=i=>i==null?'':S.teams[i].n;
 let H=[],hold=Array(8).fill(0),RES=null,hq=0,RV=false,rot=0,sh=S.teams.map(t=>t.s),an=[];
 const G=()=>JSON.stringify({sc:S.teams.map(t=>t.s),op:S.op,turn:S.turn,bag:S.bag,log:S.log,over:S.over,win:S.win,kl:S.kl,hint:S.hint});
@@ -214,13 +213,13 @@ function pk(on){if(S.cur==null)return;if(on)$('st').textContent='Đáp án: '+co
 function syncQ(){const need=['ready','timing','steal','stealjudge','key'].includes(S.ph)||RES,q=$('qo');if(need&&!q.classList.contains('on'))q.classList.add('on');if(!need)q.classList.remove('on')}
 const cnt=a=>[...(a||'').normalize('NFC')].filter(c=>c.trim()).length,fzOf=q=>q.length>130?40:q.length>80?48:58;
 function boxes(a,pre){const w=[...(a||'').normalize('NFC').toUpperCase()],n=cnt(a),g=w.length-n,s=Math.max(30,Math.min(76,Math.floor((1280-g*26-(n+g-1)*8)/Math.max(n,1)))),k=[0];return{n,html:`<div class="ab2" style="--s:${s}px">`+w.map(c=>c.trim()?`<div class="kb" id="${pre}${k[0]}"><div class="fr">${++k[0]}</div><div class="bk">${esc(c)}</div></div>`:'<i class="gp"></i>').join('')+'</div>'}}
-const opsH=o=>`<div class="ops">${o.map((x,i)=>`<div class="op" id="op${i}"><b>${'ABCD'[i]}</b><span>${esc(x)}</span></div>`).join('')}</div>`,corr=i=>{const q=S.qs[i];return 'ABCD'[q.c]+'. '+q.o[q.c]};
+const opsH=o=>`<div class="ops">${o.map((x,i)=>`<div class="op" id="op${i}"><b>${'ABCD'[i]}</b><span>${esc(x)}</span></div>`).join('')}</div>`,corr=i=>{const q=S.qs[i];return q.o?'ABCD'[q.c]+'. '+q.o[q.c]:q.a};
 function rQ(){const q=$('qo');if(!q.classList.contains('on'))return;const p=S.ph;q.classList.remove('low');
- if(RES){if(!RES.b){RES.b=1;q.innerHTML=`<div class="qh"><span class="chip" style="background:${RES.c}">${RES.h}</span><span class="okb">${RES.t}</span></div><div class="qt" style="font-size:${fzOf(RES.q)}px">${esc(RES.q)}</div>${opsH(RES.o)}`;setTimeout(()=>{if(!RES)return;for(let i=0;i<4;i++)$('op'+i).classList.add(i===RES.k?'win':'dim');sfx('letter',3)},700)}return}
+ if(RES){if(!RES.b){RES.b=1;const bx=RES.o?null:boxes(RES.a,'ab');q.innerHTML=`<div class="qh"><span class="chip" style="background:${RES.c}">${RES.h}</span><span class="okb">${RES.t}</span></div><div class="qt" style="font-size:${fzOf(RES.q)}px">${esc(RES.q)}</div>${RES.o?opsH(RES.o):bx.html}`;if(RES.o)setTimeout(()=>{if(!RES)return;for(let i=0;i<4;i++)$('op'+i).classList.add(i===RES.k?'win':'dim');sfx('letter',3)},700);else for(let i=0;i<bx.n;i++)setTimeout(()=>{const e=$('ab'+i);if(e&&RES){e.classList.add('f');sfx('letter',i)}},600+i*190)}return}
  if(p==='key'){q.innerHTML=`<div class="qh"><span class="chip" style="background:var(--p)">CHƯỚNG NGẠI VẬT</span></div><div class="res" style="font-size:80px;color:var(--p);text-align:center">${S.kt==null?'ĐỘI NÀO MUỐN<br>GIẢI MÃ TỪ KHÓA?':esc(nm(S.kt).toUpperCase())+'<br>TRẢ LỜI TỪ KHÓA'}</div><div class="ans">Từ khóa gồm ${[...S.kw.replace(/\s/g,'')].length} chữ cái</div>`;return}
  const who=p==='steal'||p==='stealjudge'?'GIÀNH QUYỀN':nm(S.turn).toUpperCase(),c=p==='steal'||p==='stealjudge'?'#ff4f9a':COL[S.turn],qq=S.qs[S.cur].q,fz=fzOf(qq),
  lab=p==='ready'?'Sẵn sàng · '+S.tA+' giây':p==='timing'?'THỜI GIAN TRẢ LỜI':p==='steal'?'AI GIÀNH QUYỀN?':esc(nm(S.st))+' trả lời';
- q.innerHTML=`<div class="qh"><span class="chip" style="background:${c}">${esc(who)} · HÀNG NGANG ${S.cur+1}</span><span>${lab}</span></div><div class="qt" style="font-size:${fz}px">${esc(qq)}</div>${opsH(S.qs[S.cur].o)}<div class="qf"><div class="tmv" id="tm"></div><div class="bar"><i id="bi"></i></div></div>`;tmUp()}
+ q.innerHTML=`<div class="qh"><span class="chip" style="background:${c}">${esc(who)} · HÀNG NGANG ${S.cur+1}</span><span>${lab}</span></div><div class="qt" style="font-size:${fz}px">${esc(qq)}</div>${S.qs[S.cur].o?opsH(S.qs[S.cur].o):boxes(S.qs[S.cur].a,'qb').html}<div class="qf"><div class="tmv" id="tm"></div><div class="bar"><i id="bi"></i></div></div>`;tmUp()}
 /* timer */
 let T=null;
 function stopTimer(){if(T){clearInterval(T.id);T=null}}
@@ -250,8 +249,8 @@ function startQ(){if(S.ph!=='ready')return;S.ph='timing';S.to=false;sfx('start')
 function Y(){S.ph==='key'?keyOk():good()}function N(){S.ph==='key'?keyNo():bad()}
 function good(){const p=S.ph;if(p!=='timing'&&p!=='stealjudge')return;const c=S.cur,w=p==='timing'?S.turn:S.st;if(S.op[c])return;
  stopTimer();commit();pts(w,S.pR,'Hàng ngang '+(c+1));S.op[c]=true;hold[c]=1;sfx('ok');boom(960,500,70);
- RES={c:'#2fa83a',h:nm(w).toUpperCase()+' · HÀNG NGANG '+(c+1),t:'ĐÚNG RỒI! +'+S.pR,q:S.qs[c].q,o:S.qs[c].o,k:S.qs[c].c};
- S.ph='idle';S.cur=S.st=null;S.ex=[];rAll();clearTimeout(hq);hq=setTimeout(endRes,4200)}
+ RES={c:'#2fa83a',h:nm(w).toUpperCase()+' · HÀNG NGANG '+(c+1),t:'ĐÚNG RỒI! +'+S.pR,q:S.qs[c].q,a:S.qs[c].a,o:S.qs[c].o,k:S.qs[c].c};
+ S.ph='idle';S.cur=S.st=null;S.ex=[];rAll();clearTimeout(hq);hq=setTimeout(endRes,S.qs[c].o?4200:900+cnt(S.qs[c].a)*190+2400)}
 function bad(){const p=S.ph;
  if(p==='timing'){const was=S.to;stopTimer();if(!was)sfx('no');S.to=false;S.ph='steal';S.ex=[];S.st=null;setTimeout(()=>sfx('steal'),was?100:500);startTimer('s',S.tB);toast('SAI / HẾT GIỜ — GIÀNH QUYỀN '+S.tB+' GIÂY','#ff4f9a',1800);rAll()}
  else if(p==='stealjudge'){sfx('no');S.ex.push(S.st);S.st=null;S.ph='steal';if(S.teams.every((t,i)=>i===S.turn||S.ex.includes(i)))return skipSteal();resumeTimer();rAll()}}
@@ -279,6 +278,7 @@ function undo(){if(!H.length)return toast('Chưa có thao tác để hoàn tác'
 const closeSet=()=>$('set').classList.remove('on');
 async function adj(i,d){if(await ask(`${d>0?'Cộng':'Trừ'} ${Math.abs(d)} điểm cho ${esc(nm(i))}?`)){commit();pts(i,d,'chỉnh tay');rAll();rLog()}}
 async function setSc(i){const v=parseInt($('ss'+i).value);if(isNaN(v))return;const d=v-S.teams[i].s;if(d&&await ask(`Đặt điểm ${esc(nm(i))} thành ${v}?`)){commit();pts(i,d,'đặt tay');rAll();rLog()}}
+function toggleType(i){const q=S.qs[i];if(q.o){q.a=q.o[q.c]||q.a;delete q.o;delete q.c}else{q.o=[q.a,'','',''];q.c=0}save();openSet()}
 function manOpen(i){if(S.op[i])return;commit();S.op[i]=true;S.log.unshift('Mở ô '+(i+1)+' (thủ công)');sfx('open');rAll();openSet()}
 function turnTo(){const i=+$('tsel').value;stopTimer();commit();S.turn=i;S.ph='pick';S.cur=S.st=S.kt=null;S.ex=[];RES=null;sfx('team');rAll();toast('ĐẾN LƯỢT '+nm(i).toUpperCase()+'!','#a55be0')}
 function rLog(){const e=$('lg');if(e)e.innerHTML=S.log.slice(0,40).map(x=>'<div>• '+esc(x)+'</div>').join('')||'Chưa có lịch sử'}
@@ -286,7 +286,7 @@ function upImg(f){if(!f)return;const r=new FileReader();r.onload=()=>{$('obi').s
 function openSet(){const N=(k,l)=>`<div class="ro"><span style="flex:1">${l}</span><input type="number" style="width:110px" value="${S[k]}" oninput="S.${k}=Math.max(1,+this.value||1);save()"></div>`;
  $('set').innerHTML=`<div class="sh"><span>CÀI ĐẶT & XỬ LÝ SỰ CỐ</span><button class="bt b" style="height:50px;padding:0 24px" onclick="closeSet()">ĐÓNG ✕</button></div><div class="sb">
  <section class="w2"><h3>Đội & điểm số</h3>${S.teams.map((t,i)=>`<div class="ro"><i style="background:${COL[i]}"></i><input value="${esc(t.n)}" oninput="S.teams[${i}].n=this.value;rAll()"><b id="ssv${i}">${t.s}</b><button class="bt r2" onclick="adj(${i},-${S.pR})">-${S.pR}</button><button class="bt g" onclick="adj(${i},${S.pR})">+${S.pR}</button><input id="ss${i}" type="number" style="width:90px" placeholder="điểm"><button class="bt b" onclick="setSc(${i})">ĐẶT</button></div>`).join('')}</section>
- <section class="w2"><h3>Câu hỏi trắc nghiệm (8 ô) · chọn đáp án đúng</h3>${S.qs.map((q,i)=>`<div style="margin-bottom:12px;padding-bottom:10px;border-bottom:2px solid #eef1ff"><div class="ro"><b style="color:${COL[i]};font-size:28px;min-width:30px">${i+1}</b><textarea rows="2" oninput="S.qs[${i}].q=this.value;save()">${esc(q.q)}</textarea>${S.op[i]?'<b style="min-width:90px;color:var(--g)">ĐÃ MỞ</b>':`<button class="bt or" onclick="manOpen(${i})">MỞ Ô</button>`}</div><div class="ro" style="margin-left:40px">${q.o.map((x,k)=>`<b style="min-width:22px;text-align:center">${'ABCD'[k]}</b><input value="${esc(x)}" oninput="S.qs[${i}].o[${k}]=this.value;save()">`).join('')}<select style="width:120px" onchange="S.qs[${i}].c=+this.value;save()">${[0,1,2,3].map(k=>`<option value="${k}" ${q.c===k?'selected':''}>Đúng: ${'ABCD'[k]}</option>`).join('')}</select></div></div>`).join('')}</section>
+ <section class="w2"><h3>Câu hỏi (8 ô) · mỗi câu chọn dạng Ô CHỮ hoặc TRẮC NGHIỆM</h3>${S.qs.map((q,i)=>`<div style="margin-bottom:12px;padding-bottom:10px;border-bottom:2px solid #eef1ff"><div class="ro"><b style="color:${COL[i]};font-size:28px;min-width:30px">${i+1}</b><textarea rows="2" oninput="S.qs[${i}].q=this.value;save()">${esc(q.q)}</textarea><button class="bt pr" onclick="toggleType(${i})">${q.o?'TRẮC NGHIỆM':'Ô CHỮ'}</button>${S.op[i]?'<b style="min-width:90px;color:var(--g)">ĐÃ MỞ</b>':`<button class="bt or" onclick="manOpen(${i})">MỞ Ô</button>`}</div><div class="ro" style="margin-left:40px">${q.o?q.o.map((x,k)=>`<b style="min-width:22px;text-align:center">${'ABCD'[k]}</b><input value="${esc(x)}" oninput="S.qs[${i}].o[${k}]=this.value;S.qs[${i}].a=S.qs[${i}].o[S.qs[${i}].c];save()">`).join('')+`<select style="width:120px" onchange="S.qs[${i}].c=+this.value;S.qs[${i}].a=S.qs[${i}].o[+this.value];save()">${[0,1,2,3].map(k=>`<option value="${k}" ${q.c===k?'selected':''}>Đúng: ${'ABCD'[k]}</option>`).join('')}</select>`:`<input value="${esc(q.a)}" oninput="S.qs[${i}].a=this.value;save()" placeholder="Đáp án (hiện thành ô chữ)">`}</div></div>`).join('')}</section>
  <section><h3>Từ khóa cuối cùng</h3><input value="${esc(S.kw)}" oninput="S.kw=this.value.toUpperCase();this.value=S.kw;rAll()"><h3 style="margin-top:14px">Thông tin hiện ở màn hình cuối</h3><input value="${esc(S.ev1)}" oninput="S.ev1=this.value;save()"><input style="margin-top:6px" value="${esc(S.ev2)}" oninput="S.ev2=this.value;save()"><h3 style="margin-top:14px">Thời gian & điểm</h3>${N('tA','Thời gian trả lời (giây)')}${N('tB','Thời gian giành quyền (giây)')}${N('pR','Điểm câu hàng ngang')}${N('pK','Điểm giải mã từ khóa')}
  <div class="ro"><input type="checkbox" ${S.lock?'checked':''} onchange="S.lock=this.checked;save()"><span>Đội đoán sai từ khóa bị mất quyền đoán tiếp</span></div></section>
  <section><h3>Âm thanh</h3><div class="ro"><input type="checkbox" ${S.muted?'checked':''} onchange="S.muted=this.checked;setVol();save()"><span>Tắt toàn bộ âm thanh</span></div><div class="ro"><span style="width:150px">Âm lượng</span><input type="range" min="0" max="1" step=".05" value="${S.vol}" oninput="S.vol=+this.value;setVol();save()" onchange="initAudio();sfx('ok')"></div><div class="ro"><span style="width:150px">Nhạc nền</span><input type="range" min="0" max="1" step=".05" value="${S.mv}" oninput="S.mv=+this.value;setVol();save()"><button class="bt pr" onclick="musicT()">BẬT/TẮT</button></div>
@@ -297,7 +297,7 @@ function openSet(){const N=(k,l)=>`<div class="ro"><span style="flex:1">${l}</sp
 /* ===== RENDER / INIT ===== */
 function rAll(){rScore();rTurn();rCtl();rTiles();rKw();syncQ();rQ();drawWheel();save()}
 function go(){initAudio();AC.resume();setVol();sfx('start');if(!music)musicT();$('start').classList.add('off')}
-const st_=$('stage').style;st_.backgroundImage=`url(${IM.bg})`;$('start').style.backgroundImage=`url(${IM.bg})`;
+document.body.style.background=`url(${IM.bg}) center/cover`;const st_=$('stage').style;st_.backgroundImage=`url(${IM.bg})`;$('start').style.backgroundImage=`url(${IM.bg})`;
 $('logo').src=IM.ban;$('sb1').src=IM.ban;$('obi').src=IM.ob;$('wm1').src=IM.or;$('wm2').src=IM.pk;$('m1').src=IM.or;$('m2').src=IM.pk;$('m3').src=IM.gr;$('m4').src=IM.yl;$('wm3').src=IM.gr;$('wm4').src=IM.yl;
 buildSc();buildTiles();fit();rAll();setVol();(document.fonts&&document.fonts.ready||Promise.resolve()).then(drawWheel);
 </script></body></html>
